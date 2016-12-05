@@ -1,0 +1,529 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SciMus - Music & Web</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+
+    <div class="slides">
+
+        <section data-markdown data-separator-notes="^Note:">
+            # Science
+            &
+            # Music
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Note:">
+                # Planning
+
+                * **Tuesday 29/11**
+                  * Talk & QA: *Music & Web - Architecture & Technology Overview*
+                  * Lab Work 1: Working with APIs
+                  * Lab Work 2 & 3: Introduction to Pandas & data analysis
+
+                * **Tuesday 6/12**
+                  * Talk & QA: *Music & Big Data - Overview of challenges & technologies*
+                  * Lab Work 4: Introduction to Spark & Data processing
+
+                Note:
+                * General description and organization of the 2 sessions
+            </section>
+
+        </section>
+
+        <section data-markdown data-separator-notes="^Note:">
+            ## Music & Web
+            &mdash;
+            ### Architecture & Technology Overview
+
+            Note:
+            Objectives is to give an overview of elements related to the distribution
+            of digital music and the new area of IT, Research & Science used in the
+            context of music.
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Note:">
+                # Music transformation
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## Digital transformation
+
+                * Vinyl
+
+                * Cassette
+
+                * CDs
+
+                * MP3s & co
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## Consumption models
+
+                * Ownership
+                  * Physical libraries
+                  * Digital libraries (local/remote)
+
+                * Access
+                  * Subscription
+                  * Pay As You Go
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                # Internet
+
+                * Online stores
+
+                * Cloud libraries
+
+                * New services
+                  * Recommendation
+                  * Discovery
+
+                * Music is social
+
+            </section>
+        </section>
+
+        <section data-markdown data-separator-notes="^Note:">
+            ## Components of a Music service
+
+            &mdash;
+
+            Thinking of building a Music service? :)
+
+            Note:
+            * Put in place the story to present different concepts
+            * Deep dive into architecture of a generic music service/system
+        </section>
+
+        <section data-markdown data-separator-notes="^Note:">
+            ## 10,000 feet view
+
+            ![naive-view](images/slides/Architecture%20-%2010k%20view.png)
+
+            Note:
+            * Very simplistic approach
+            * "consumer" view
+            * Web service
+            * Different types of clients (phones, laptop, tablet, ...)
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Note:">
+                ## Dive 1 - Generic architecture
+
+                ![naive-view](images/slides/Architecture - Dive 1.png)
+
+                Note:
+                * Interactions are performed through APIs
+                * Frontends and applications communicates to APIs, that talk to private backends/api
+                * Some storage in place to store information
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## API
+
+                An *Application Programming Interface* (API) is a set of subroutine definitions,
+                protocols, and tools for building software and applications.
+
+           </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## API
+
+                They are *everywhere*!
+
+                * OS (POSIX, Windows API, Cocoa, iOS, Android, ...)
+                * Software libraries (C++, Scala, Java, Python, Javascript, ...)
+                * Protocols, Remote APIs (JDBC, ...)
+                * Web API (SOAP, REST, ...)
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## API
+
+                 API is not an implementation, only defines the *interface*
+
+                 * Protocol
+                 * Functions
+                 * Data models of input/output objects
+
+                Note:
+                * General principles behind an API
+                * extend to different domain
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## Web Service / Web API
+
+                * Web Services
+                  * SOAP (Simple Object Access Protocol)
+                  * XML
+
+                * Web APIs
+                  * REST (Representational State Transfer)
+                  * JSON
+
+                Note:
+                * 2 main trends
+                * different type of APIs/ approaches
+                * common pattern nowadays
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## Why Web API?
+
+                * Allow to easily build new applications
+                * Simplify development (API is fixed, known contract)
+                * Allow new services to be built, used (either internally or externally)
+                * Same approach than traditional software development
+                  * Components
+                  * Composing
+                  * Reusability
+                  * Testing
+                  * ...
+
+                Note:
+                * How the are used
+                * Authentication / Authorization
+                * https://zapier.com/learn/apis/chapter-2-protocols
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## API - System architectures
+
+                ![apis](images/slides/APIs.png)
+
+                Note:
+                * n-tier architecture, monolithic
+                * microservices, small services, one or a very low number of function
+                  * increase scalability
+                  * increased testing/deployment/replacement
+            </section>
+
+            <section data-markdown>
+                ## Frontend / Backend
+
+                * **Backend**
+                  * Business logic
+                  * API
+                * **Frontend**
+                  * Visualization
+                  * User interaction (UX)
+
+                * Decoupling eases:
+                  * development
+                  * testing
+                  * deployment
+
+                Note:
+                 * used to decouple elements in applications
+                 * improve development and iterations
+            </section>
+        </section>
+
+        <section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## Dive 2 - Content Delivery
+
+                ![naive-view](images/slides/Architecture - Dive 2.png)
+
+                Note:
+                * Infrastructure required for pushing/publishing content to consumers
+                * Download / buy music
+                * Stream music
+                * Access website with rich content / audio / video
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### CDN
+
+                > Content Distribution Network
+
+                ![cdn](images/slides/CDN.png)
+
+                Note:
+                * Deliver content nearer to users
+                * Smaller latency
+                * Improved experience
+                * CDN synchronization
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### Peer 2 Peer
+
+                > Decentralized network
+
+                ![naive-view](images/slides/P2P.png)
+
+                Note:
+                * Relies on user exchanging data peer 2 peer
+                * Seeds from main servers
+                * Lower load and network activity on company's infrastructure
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### Streaming
+
+                ![naive-view](images/slides/streaming.png)
+
+                Note:
+                * DRM digital right management
+                * Adaptive quality / streaming
+                * Encoding/decoding
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Note:">
+                ## Dive 3 - Partners
+
+                ![naive-view](images/slides/Architecture - Dive 3.png)
+
+                Note:
+                * On the business side collaboration required to acquire content, prepare
+                and store it for distribution and usage by client
+                * B2B
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Note:">
+                ## Dive 4 - Data & Events Collection
+
+                ![naive-view](images/slides/Architecture - Dive 4.png)
+
+                Note:
+                * Data collection from users
+                * Personalized services:
+                  * recommendation
+                  * social features, sharing
+                  * mailing campaign & marketing
+                * A/B testing, product development
+                * the data part, using data from users to personalize services
+                * buid and validate new products
+            </section>
+
+             <section data-markdown data-separator-notes="^Note:">
+                 ### What is being collected ?
+
+                 * Events generated by users
+                   * Click / Browsing activity
+                   * Listening activity
+                 * Internal services
+                    * Performances, logs
+                 * External services
+                   * Analytics, User engagement, tracking, ...
+                   * Social website monitoring (Facebook/Twitter feeds, ...)
+
+                 Note:
+                 * the data part, using data from users to personalize services
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### Why ?
+
+                * Marketing / Targeting
+                * Improve product quality
+                * Focus development on specific features
+                * Performance analysis / reliability
+                * Recommendation
+                * ...
+
+                Note:
+                * the data part, using data from users to personalize services
+            </section>
+        </section>
+
+        <section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## Dive 5 - Content analysis & Enrichment
+
+                ![naive-view](images/slides/Architecture - Dive 5.png)
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### Content analysis & Enrichment
+
+                * Metadata & content analysis
+                * Crowd sourcing
+                * Clustering & classification
+                * Fingerprinting
+                * Added content
+                * ...
+
+                Note:
+                * Metadata & content analysis = Catalog authors/albums/history/...
+                * Crowd sourcing = LastFM / Grooveshark / Musicbrainz / ...
+                * Clustering & classification = Spotify / Pandora / music genre
+                * Fingerprinting = Shazam / Echonest
+                * Added content (Lyrics, Shop, recommendations, ...) = Additional content (lyrics, link to buy content
+                ...)
+                * ...
+            </section>
+        </section>
+
+        <section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ## Dive 6 - Infrastructure
+
+
+
+                Where do we run the different services?
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### Where?
+
+                * Physical Data Centers
+                  * On-premises
+                  * DC (owned or colocation)
+
+                * Cloud Infrastructure
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### Different types of approach to infrastructure
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### IaaS
+
+                > IaaS - *Infrastructure As A Service*
+
+                * Servers, Storage, Network, Operating System, ...
+
+                eg: Amazon EC2 & co, Windows Azure, Google Compute Engine, VmWare, OpenStack, ...
+
+                Note:
+                * Access to cloud features to setup VMs, OS, some network components
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### PaaS
+
+                > PaaS - *Platform As A Service*
+
+                * Managed databases, web servers, container solutions, ...
+
+                eg: AWS Elastic Beanstalk, AWS RDS, Heroku, Google App Engine, Cloud Foundry, ...
+
+                Note:
+                * PaaS vendors offer a development environment to application developers
+                * Pre-built solutions, don't require managing network, OS, storage
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Note:">
+                ### SaaS
+
+                > SaaS - *Software As A Service*
+
+                * User facing software / consumption
+
+                eg: Google Apps, Office 365, Gmail, Dropbox, SalesForce, ...
+
+                Note:
+
+            </section>
+        </section>
+
+        <section data-markdown data-separator-notes="^Note:">
+            ### Who's there?
+
+            ![music-map](images/music-map-4f1dc39-intro.jpg)
+
+            Note:
+            Not only music:
+            * ticket sales
+            * gig recommendation
+            * ticket exchange
+            * music software
+
+        </section>
+
+        <section data-markdown>
+            # Questions?
+
+        </section>
+
+        <section data-markdown>
+            # Lab !
+
+        </section>
+
+        <section data-markdown>
+            ##  Lab
+
+            Get the Jupyter notebooks
+
+                git clone https://github.com/glinmac/scimus-2016.git
+
+            Start Jupyter
+
+                 cd scimus-2016
+                 jupyter notebook
+
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+        center: true,
+        showNotes: false,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad();}},
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/math/math.js', async: true},
+            {src: 'lib/js/classList.js', condition: function () { return !document.body.classList;}}
+        ]
+    });
+</script>
+</body>
+</html>
