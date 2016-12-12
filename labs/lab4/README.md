@@ -1,5 +1,9 @@
 # Lab 4 Setup
 
+## Checkout lab 4
+
+    git clone https://github.com/glinmac/scimus-2016 scimus-2016-lab4
+    cd scimus-2016-lab4/labs/lab4
 
 ## Install Spark
 
