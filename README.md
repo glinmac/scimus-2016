@@ -17,4 +17,4 @@ Notebooks
 
 Notebooks for Science & Musique modules
 
- * [https://github.com/glinmac/scimus-2016]
+ * [https://github.com/glinmac/scimus-2016](https://github.com/glinmac/scimus-2016)
