@@ -4,17 +4,11 @@ SCIMUS 2016
 Lectures/Workshops Ecole Centrale de Nantes Nov/Dec 2016.
 
 
-Slides
-------
+ * Lab 1: [*Data collection - Working with Web APIs*](labs/lab1)
+ * Lab 2: [*Introduction to Pandas*](labs/lab2)
+ * Lab 3: [*Data Analysis*](labs/lab3)
+ * Lab 4: [*Data processing at scale - Introduction to Spark*](labs/lab4)
+ * [Slides](slides)
 
- * [Music & Web](https://glinmac.github.io/scimus-2016/slides/music & web.html) - Introduction to various IT concepts related to distribution of Digital Music and 
-   related services.
- * [Music & Big Data](https://glinmac.github.io/scimus-2016/slides/music & big data.html) - Introduction to Big Data and data processing at scale in the context of 
-   Digital Music and its related services. 
 
-Notebooks
----------
 
-Notebooks for Science & Musique modules
-
- * [https://github.com/glinmac/scimus-2016](https://github.com/glinmac/scimus-2016)
